@@ -35,6 +35,9 @@ resource "aws_instance" "i1" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subjenkins.id
   provisioner "local-exec" {
-    command = "echo 'Hello, local provisioner!' > output.txt"
+    command = "echo '${aws_instance.i1.private_ip}' > output.txt"
  }
+}
+output "private_ip" {
+  value = aws_instance.i1.private_ip
 }
