@@ -1,0 +1,7 @@
+---
+- name: Creating A file using ansible
+  hosts: all
+  tasks:
+    - name: jenkins.yaml
+      path: /home/ubuntu
+      state: touch
